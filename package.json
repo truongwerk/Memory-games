@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-legacy": "^1.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
