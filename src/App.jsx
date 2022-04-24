@@ -1,51 +1,45 @@
 import { useState } from "react";
+import FlipCard from "./components/flipCard";
 import "./styles/App.css";
 
-import cover from "./img/flipCard/cover.png";
-import armor from "./img/flipCard/upg_armor-min.png";
-import bow from "./img/flipCard/upg_bow-min.png";
-import coin from "./img/flipCard/coin-min.png";
-import map from "./img/flipCard/map-min.png";
-import shield from "./img/flipCard/upg_shield-min.png";
-import sword from "./img/flipCard/upg_sword-min.png";
-
-const cardImages = [armor, bow, coin, map, shield, sword];
-
 function App() {
-	const [cards, setCards] = useState([]);
-	const [turns, setTurns] = useState(0);
+	const [mode, setMode] = useState(0);
 
-	//From start to end take random item and swap with current item  12!
-	const randomCards = () => {
-		let shuffledCards = [...cardImages, ...cardImages];
-		for (let i = shuffledCards.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			const temp = shuffledCards[i];
-			shuffledCards[i] = shuffledCards[j];
-			shuffledCards[j] = temp;
-		}
-		setCards(shuffledCards);
-		setTurns(0);
-	};
-	// console.log(cards, turns);
+	function game1() {
+		setMode(1);
+	}
+
+	function stop() {
+		setMode(0);
+	}
 
 	return (
 		<div className="App">
-			<h1>Magic Match</h1>
-			<button onClick={randomCards}>New Game</button>
+			<h1>Memory Game</h1>
+			<h2>
+				© 2022 Create by{" "}
+				<a
+					href="https://github.com/truongwerk"
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					Tong Quang Truong
+				</a>
+				<div className="control">
+					<button onClick={game1}>Magic Match</button>
+					<button onClick={stop}>Stop</button>
+					<button>Fruit Memorize</button>
+				</div>
+			</h2>
 
-			<div className="card-grid">
-				{cards.map((card, index) => (
-					<div className="card" key={index}>
-						<div>
-							<img className="fontCard" src={card} alt="card font" />
-							<img className="backCard" src={cover} alt="card back" />
-						</div>
-					</div>
-				))}
-			</div>
+			<ChangeGame mode={mode} />
 		</div>
 	);
 }
+const ChangeGame = (props) => {
+	if (props.mode === 1) {
+		return <FlipCard />;
+	} else return;
+};
 
 export default App;

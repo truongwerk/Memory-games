@@ -1,0 +1,62 @@
+#flipCard {
+	max-width: 860px;
+	margin: 40px auto;
+}
+#flipCard h1 {
+	font-size: 4rem;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+#flipCard h3 {
+	font-size: 2.5rem;
+	margin: 15px 0;
+}
+
+.card-box {
+	margin-top: 40px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.card {
+	position: relative;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.card img {
+	width: 200px;
+	height: 200px;
+	display: block;
+	border: 2px solid white;
+	border-radius: 6px;
+}
+
+/* Flipped Card */
+.card .fontCard {
+	transform: rotateY(90deg);
+	position: absolute;
+	transition: all ease-in 0.2s;
+}
+.flipped .fontCard {
+	transform: rotateY(0deg);
+	transition-delay: 0.2s;
+}
+
+.card .backCard {
+	transition: all ease-in 0.1s;
+	transition-delay: 0.2s;
+}
+.flipped .backCard {
+	transform: rotateY(90deg);
+	transition-delay: 0s;
+}
+
+@media screen and (max-width: 430px) {
+	.card img {
+		width: 150px;
+		height: 150px;
+	}
+}
