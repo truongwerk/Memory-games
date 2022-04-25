@@ -19,6 +19,7 @@ const cardImages = [
 	{ src: shield, matched: false },
 	{ src: sword, matched: false },
 ];
+
 function FlipCard() {
 	const [cards, setCards] = useState([]);
 	const [turns, setTurns] = useState(0);

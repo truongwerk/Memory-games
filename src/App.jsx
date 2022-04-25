@@ -11,7 +11,7 @@ function App() {
 		setMode("magic");
 	}
 
-	function stop() {
+	function rule() {
 		setMode("rule");
 	}
 
@@ -33,7 +33,7 @@ function App() {
 				</a>
 				<div className="control">
 					<button onClick={magic}>Magic Match</button>
-					<button onClick={stop}>Rules</button>
+					<button onClick={rule}>Rules</button>
 					<button onClick={fruit}>Fruit Memorize</button>
 				</div>
 			</h2>
@@ -41,6 +41,7 @@ function App() {
 		</div>
 	);
 }
+
 const ChangeGame = (props) => {
 	if (props.mode === "magic") {
 		return <FlipCard />;

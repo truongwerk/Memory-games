@@ -105,9 +105,6 @@ function Memorize() {
 		}
 	}, [currentChoice]);
 
-	if (score === 12) {
-		setDisable(true);
-	}
 	return (
 		<div className="memorize">
 			<h1>Fruit Memorize</h1>
@@ -132,7 +129,6 @@ function Card(props) {
 	function handleClick() {
 		if (!props.disable) {
 			console.log(props.card.name);
-
 			let audio = new Audio(buttonSound);
 			audio.playbackRate = 1.5;
 			audio.volume = 0.6;
