@@ -9,6 +9,7 @@ import coin from "../img/flipCard/coin-min.png";
 import map from "../img/flipCard/map-min.png";
 import shield from "../img/flipCard/upg_shield-min.png";
 import sword from "../img/flipCard/upg_sword-min.png";
+import flipSound from "../sound/flip.mp3";
 
 const cardImages = [
 	{ src: armor, matched: false },
@@ -26,7 +27,7 @@ function FlipCard() {
 	const [disable, setDisable] = useState(false);
 
 	//From start to end take random item and swap with current item  12!
-	const randomCards = () => {
+	const newGame = () => {
 		let shuffledCards = [...cardImages, ...cardImages];
 		for (let i = shuffledCards.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
@@ -44,7 +45,7 @@ function FlipCard() {
 		setTurns(0);
 		setTimeout(() => {
 			setCards(shuffledCards);
-		},200);
+		}, 200);
 	};
 
 	const handleChoice = (card) => {
@@ -54,6 +55,10 @@ function FlipCard() {
 			setChoiceTwo(card);
 		}
 	};
+
+	useEffect(() => {
+		newGame();
+	}, []);
 
 	//Check choices
 	useEffect(() => {
@@ -75,14 +80,14 @@ function FlipCard() {
 				setChoiceTwo(null);
 				setTurns((pre) => pre + 1);
 				setDisable(false);
-			}, 1000);
+			}, 700);
 		}
 	}, [choiceTwo]);
 
 	return (
 		<div id="flipCard">
 			<h1>Magic Match</h1>
-			<button onClick={randomCards}>New Game</button>
+			<button onClick={newGame}>New Game</button>
 			<h3>Turn: {turns}</h3>
 			<div className="card-box">
 				{cards.map((card) => (
@@ -102,6 +107,9 @@ function FlipCard() {
 function Card(props) {
 	const handleClick = () => {
 		if (!props.disable) {
+			let audio = new Audio(flipSound);
+			audio.volume = 0.4;
+			audio.play();
 			props.handleChoice(props.card);
 		}
 	};

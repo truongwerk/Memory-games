@@ -15,8 +15,24 @@
 	font-weight: bold;
 }
 
-.control button{
+.control button {
 	margin: 10px;
+}
+
+.rule {
+	max-width: 860px;
+	margin: 40px auto;
+}
+.rule h1 {
+	font-size: 4rem;
+}
+.rule h2 {
+	margin: 20px 0;
+	text-align: left;
+}
+.rule p {
+	text-align: left;
+	font-size: 2rem;
 }
 
 button {
