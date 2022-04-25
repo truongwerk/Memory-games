@@ -21,7 +21,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Memory Game</h1>
+			<h1>Memory Games</h1>
 			<h2>
 				© 2022 Create by{" "}
 				<a
