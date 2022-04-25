@@ -1,0 +1,46 @@
+.memorize {
+	max-width: 860px;
+	margin: 40px auto;
+}
+.App .memorize h1 {
+	font-size: 4rem;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.memorize h3 {
+	font-size: 2.5rem;
+	margin: 15px 0;
+}
+
+.card-box {
+	margin-top: 40px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.card {
+	position: relative;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.card img:hover {
+	border: 2px solid rgb(245, 241, 5);
+}
+
+.card img {
+	width: 200px;
+	height: 200px;
+	display: block;
+	border: 2px solid white;
+	border-radius: 6px;
+}
+
+@media screen and (max-width: 430px) {
+	.card img {
+		width: 150px;
+		height: 150px;
+	}
+}

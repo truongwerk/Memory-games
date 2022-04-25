@@ -27,10 +27,11 @@
 	font-size: 4rem;
 }
 .rule h2 {
-	margin: 20px 0;
+	margin: 20px 10px;
 	text-align: left;
 }
 .rule p {
+	margin: 0 10px;
 	text-align: left;
 	font-size: 2rem;
 }

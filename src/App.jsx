@@ -1,17 +1,22 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import FlipCard from "./components/flipCard";
+import Memorize from "./components/memorize";
 import "./styles/App.css";
 
 function App() {
 	const [mode, setMode] = useState("rule");
 
-	function game1() {
+	function magic() {
 		setMode("magic");
 	}
 
 	function stop() {
 		setMode("rule");
+	}
+
+	function fruit() {
+		setMode("fruit");
 	}
 
 	return (
@@ -27,9 +32,9 @@ function App() {
 					Tong Quang Truong
 				</a>
 				<div className="control">
-					<button onClick={game1}>Magic Match</button>
+					<button onClick={magic}>Magic Match</button>
 					<button onClick={stop}>Rules</button>
-					<button>Fruit Memorize</button>
+					<button onClick={fruit}>Fruit Memorize</button>
 				</div>
 			</h2>
 			<ChangeGame mode={mode} />
@@ -45,20 +50,20 @@ const ChangeGame = (props) => {
 				<h1>Rules:</h1>
 				<h2>Magic Match:</h2>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					voluptates nihil vel doloribus, a aliquid mollitia consequuntur dicta
-					velit, natus alias blanditiis repudiandae doloremque ea cumque dolor,
-					numquam quos praesentium.
+					Chooses a card and flip it over then selects another card and flip it
+					over. If the two cards that do not match, those cards are turned face
+					down. Try to flip all the cards with as few turns as possible.
 				</p>
 				<h2>Fruit Memorize:</h2>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Exercitationem velit temporibus, voluptatum nisi adipisci, ex ipsa
-					labore optio veniam animi quisquam dolore magnam facilis ratione
-					consequatur amet illum cumque architecto!
+					You are presented with multiple images of fruits and veggies. The
+					images get shuffled every-time they are clicked. You CAN NOT click on
+					any image more than once or else you lose and your score resets to
+					zero. Try to get 12 points. You can cheat with console.
 				</p>
 			</div>
 		);
+	else return <Memorize />;
 };
 ChangeGame.propTypes = {
 	mode: PropTypes.string,

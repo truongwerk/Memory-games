@@ -39,13 +39,26 @@ function FlipCard() {
 			...card,
 			id: index,
 		}));
+
 		// Reset and create game
+		// Flip All Card First
+		if (choiceOne) {
+			setCards(
+				cards.map((card) => {
+					return { ...card, matched: false };
+				})
+			);
+			//Take time to flip card
+			setTimeout(() => {
+				setCards(shuffledCards);
+			}, 200);
+		} else {
+			setCards(shuffledCards);
+		}
+
 		setChoiceOne(null);
 		setChoiceTwo(null);
 		setTurns(0);
-		setTimeout(() => {
-			setCards(shuffledCards);
-		}, 200);
 	};
 
 	const handleChoice = (card) => {
@@ -108,7 +121,8 @@ function Card(props) {
 	const handleClick = () => {
 		if (!props.disable) {
 			let audio = new Audio(flipSound);
-			audio.volume = 0.4;
+			audio.playbackRate = 1.5;
+			audio.volume = 0.3;
 			audio.play();
 			props.handleChoice(props.card);
 		}
