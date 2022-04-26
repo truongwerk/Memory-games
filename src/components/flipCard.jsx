@@ -94,7 +94,7 @@ function FlipCard() {
 				setChoiceTwo(null);
 				setTurns((pre) => pre + 1);
 				setDisable(false);
-			}, 700);
+			}, 500);
 		}
 	}, [choiceTwo]);
 

@@ -1,26 +1,36 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
 import FlipCard from "./components/flipCard";
 import Memorize from "./components/memorize";
+import { HashRouter, Link, Route, Routes } from "react-router-dom";
 import "./styles/App.css";
 
 function App() {
-	const [mode, setMode] = useState("rule");
-
-	function magic() {
-		setMode("magic");
-	}
-
-	function rule() {
-		setMode("rule");
-	}
-
-	function fruit() {
-		setMode("fruit");
-	}
-
 	return (
-		<div className="App">
+		<HashRouter>
+			<div className="App">
+				<div className="control">
+					<Link to="/">
+						<button>Home Page</button>
+					</Link>
+					<Link to="/flipCard">
+						<button>Magic Match</button>
+					</Link>
+					<Link to="/memorize">
+						<button>Fruit Memorize</button>
+					</Link>
+				</div>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/flipCard" element={<FlipCard />} />
+					<Route path="/memorize" element={<Memorize />} />
+				</Routes>
+			</div>
+		</HashRouter>
+	);
+}
+
+function HomePage() {
+	return (
+		<>
 			<h1>Memory Games</h1>
 			<h2>
 				© 2022 Create by{" "}
@@ -31,22 +41,7 @@ function App() {
 				>
 					Tong Quang Truong
 				</a>
-				<div className="control">
-					<button onClick={magic}>Magic Match</button>
-					<button onClick={rule}>Rules</button>
-					<button onClick={fruit}>Fruit Memorize</button>
-				</div>
 			</h2>
-			<ChangeGame mode={mode} />
-		</div>
-	);
-}
-
-const ChangeGame = (props) => {
-	if (props.mode === "magic") {
-		return <FlipCard />;
-	} else if (props.mode === "rule")
-		return (
 			<div className="rule">
 				<h1>Rules:</h1>
 				<h2>Magic Match:</h2>
@@ -63,11 +58,8 @@ const ChangeGame = (props) => {
 					zero. Try to get 12 points. You can cheat with console.
 				</p>
 			</div>
-		);
-	else return <Memorize />;
-};
-ChangeGame.propTypes = {
-	mode: PropTypes.string,
-};
+		</>
+	);
+}
 
 export default App;
