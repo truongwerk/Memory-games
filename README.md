@@ -15,9 +15,8 @@ Train your memory muscles with Match Magic and Fruit Memorize!
 ## Features
 
 - Routing.
-- FLip animation.
-- Live previews
-- Responsive
+- Flip animation.
+- Responsive.
 
 ## Build With:
 
